@@ -6,4 +6,64 @@
     android:layout_height="match_parent"
     tools:context=".SegundaPantalla">
 
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="282dp"
+        android:layout_height="56dp"
+        tools:layout_editor_absoluteX="128dp"
+        tools:layout_editor_absoluteY="39dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Título tarea" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+
+    <ImageButton
+        android:id="@+id/imbBuscar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/buscar2"
+        tools:layout_editor_absoluteX="45dp"
+        tools:layout_editor_absoluteY="42dp" />
+
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="409dp"
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="181dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Descripción" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+
+    <Button
+        android:id="@+id/btnIngresar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ingresar"
+        android:backgroundTint="@color/black"
+        tools:layout_editor_absoluteX="37dp"
+        tools:layout_editor_absoluteY="304dp" />
+
+
+
+    <Button
+        android:id="@+id/btnModificar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/black"
+        android:text="Modificar"
+        tools:layout_editor_absoluteX="267dp"
+        tools:layout_editor_absoluteY="307dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
