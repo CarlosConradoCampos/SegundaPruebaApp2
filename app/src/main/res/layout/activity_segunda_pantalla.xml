@@ -4,57 +4,95 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".SegundaPantalla">
 
 
+    <TextView
+        android:id="@+id/tvTitulo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/verde"
+        android:fontFamily="sans-serif-black"
+        android:padding="15dp"
+        android:text="Tarea"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
     <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="282dp"
+        android:id="@+id/tilTituloTarea"
+        android:layout_width="0dp"
         android:layout_height="56dp"
-        tools:layout_editor_absoluteX="128dp"
-        tools:layout_editor_absoluteY="39dp">
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        app:counterEnabled="true"
+        app:counterMaxLength="20"
+        android:textColorHint="@color/black"
+        app:counterTextColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imbBuscar"
+        app:layout_constraintTop_toTopOf="@+id/imbBuscar">
+
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Título tarea" />
+            android:hint="Título tarea"
+            android:textColor="@color/black"
+            android:background="@color/white"/>
 
     </com.google.android.material.textfield.TextInputLayout>
-
 
 
     <ImageButton
         android:id="@+id/imbBuscar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/buscar2"
-        tools:layout_editor_absoluteX="45dp"
-        tools:layout_editor_absoluteY="42dp" />
-
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTitulo"
+        app:srcCompat="@drawable/buscar"/>
 
 
     <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="409dp"
+        android:id="@+id/tilDescripcion"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="181dp">
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="30dp"
+        app:counterEnabled="true"
+        android:textColorHint="@color/black"
+        app:counterMaxLength="200"
+        app:counterTextColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imbBuscar">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:textColor="@color/black"
             android:hint="Descripción" />
     </com.google.android.material.textfield.TextInputLayout>
-
 
 
     <Button
         android:id="@+id/btnIngresar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Ingresar"
         android:backgroundTint="@color/black"
-        tools:layout_editor_absoluteX="37dp"
-        tools:layout_editor_absoluteY="304dp" />
-
+        android:text="Ingresar"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tilDescripcion"/>
 
 
     <Button
@@ -63,7 +101,9 @@
         android:layout_height="wrap_content"
         android:backgroundTint="@color/black"
         android:text="Modificar"
-        tools:layout_editor_absoluteX="267dp"
-        tools:layout_editor_absoluteY="307dp" />
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tilDescripcion"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
