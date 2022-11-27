@@ -10,7 +10,7 @@ import android.widget.Button;
 public class MainActivity extends AppCompatActivity {
 
 
-    private Button btnAgregar, btnBuscar;
+    private Button btnAgregar, btnSalir;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,13 +27,20 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        btnSalir.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
 
     }
 
 
     private void referencias(){
         btnAgregar = findViewById(R.id.btnAgregar);
-        btnBuscar = findViewById(R.id.btnBuscar);
+        btnSalir = findViewById(R.id.btnSalir);
     }
 
 

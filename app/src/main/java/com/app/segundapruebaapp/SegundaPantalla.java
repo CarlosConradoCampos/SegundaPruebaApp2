@@ -40,22 +40,27 @@ public class SegundaPantalla extends AppCompatActivity {
                 if(tilTituloTarea.getEditText().getText().toString().isEmpty()){
                     tilTituloTarea.setError("Para agregar una tarea debe Ingresar el Titulo");
                 }else{
-                    if(!tilDescripcion.getEditText().getText().toString().isEmpty())
+                    if(!tilDescripcion.getEditText().getText().toString().isEmpty()) {
                         descripcion = tilDescripcion.getEditText().getText().toString();
-
-                    titulo = tilTituloTarea.getEditText().getText().toString();
-                    for(int x = 0; x < listaTareas.size(); x++){
-                        if(listaTareas.get(x).getTitulo().equalsIgnoreCase(titulo)){
-                            tilTituloTarea.setError("La Tarea ya existe");
-                            noExiste = false;
+                        titulo = tilTituloTarea.getEditText().getText().toString();
+                        for(int x = 0; x < listaTareas.size(); x++){
+                            if(listaTareas.get(x).getTitulo().equalsIgnoreCase(titulo)){
+                                tilTituloTarea.setError("La Tarea ya existe");
+                                noExiste = false;
+                            }
                         }
+                        if(noExiste){
+                            Tarea a = new Tarea(listaTareas.size()+1, titulo, descripcion);
+                            listaTareas.add(a);
+                            tilTituloTarea.setError(null);
+                            tilDescripcion.setError(null);
+                            Toast.makeText(SegundaPantalla.this, "Tarea Agregada", Toast.LENGTH_SHORT).show();
+                        }
+
+                    }else{
+                        tilDescripcion.setError("Debe Ingresar Una descripcion");
                     }
-                    if(noExiste){
-                        Tarea a = new Tarea(listaTareas.size()+1, titulo, descripcion);
-                        listaTareas.add(a);
-                        tilTituloTarea.setError(null);
-                        Toast.makeText(SegundaPantalla.this, "Tarea Agregada", Toast.LENGTH_SHORT).show();
-                    }
+
 
                 }
             }
@@ -72,22 +77,25 @@ public class SegundaPantalla extends AppCompatActivity {
                 if(tilTituloTarea.getEditText().getText().toString().isEmpty()){
                     tilTituloTarea.setError("Para Modificar una tarea debe escribir su Titulo");
                 }else{
-                    if(!tilDescripcion.getEditText().getText().toString().isEmpty())
+                    if(!tilDescripcion.getEditText().getText().toString().isEmpty()) {
                         descripcion = tilDescripcion.getEditText().getText().toString();
-
-                    titulo = tilTituloTarea.getEditText().getText().toString();
-                    for(int x = 0; x < listaTareas.size(); x++){
-                        if(listaTareas.get(x).getTitulo().equalsIgnoreCase(titulo)){
-                            existe = true;
-                            indice = x;
+                        titulo = tilTituloTarea.getEditText().getText().toString();
+                        for(int x = 0; x < listaTareas.size(); x++){
+                            if(listaTareas.get(x).getTitulo().equalsIgnoreCase(titulo)){
+                                existe = true;
+                                indice = x;
+                            }
+                        }
+                        if(existe){
+                            listaTareas.get(indice).setDescripcion(descripcion);
+                            Toast.makeText(SegundaPantalla.this, "Modificacion Exitosa", Toast.LENGTH_SHORT).show();
+                        }else{
+                            Toast.makeText(SegundaPantalla.this, "La Tarea no Existe", Toast.LENGTH_SHORT).show();
                         }
                     }
-                    if(existe){
-                        listaTareas.get(indice).setDescripcion(descripcion);
-                        Toast.makeText(SegundaPantalla.this, "Modificacion Exitosa", Toast.LENGTH_SHORT).show();
-                    }else{
-                        Toast.makeText(SegundaPantalla.this, "La Tarea no Existe", Toast.LENGTH_SHORT).show();
-                    }
+
+
+
 
                 }
             }
