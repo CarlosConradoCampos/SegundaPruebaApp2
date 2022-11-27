@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputLayout;
 
@@ -37,7 +38,10 @@ public class SegundaPantalla extends AppCompatActivity {
 
                 if(tilTituloTarea.getEditText().getText().toString().isEmpty()){
                     tilTituloTarea.setError("Para agregar una tarea debe Ingresar el Titulo");
-                }else if(tilDescripcion.getEditText().getText().toString().isEmpty()){
+                }else{
+                    if(!tilDescripcion.getEditText().getText().toString().isEmpty())
+                        descripcion = tilDescripcion.getEditText().getText().toString();
+
                     titulo = tilTituloTarea.getEditText().getText().toString();
                     for(int x = 0; x < listaTareas.size(); x++){
                         if(listaTareas.get(x).getTitulo().equalsIgnoreCase(titulo)){
@@ -48,9 +52,50 @@ public class SegundaPantalla extends AppCompatActivity {
                     if(noExiste){
                         Tarea a = new Tarea(listaTareas.size()+1, titulo, descripcion);
                         listaTareas.add(a);
+                        tilTituloTarea.setError(null);
+                        Toast.makeText(SegundaPantalla.this, "Tarea Agregada", Toast.LENGTH_SHORT).show();
                     }
 
                 }
+            }
+        });
+
+        btnModificar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String titulo = "";
+                String descripcion = "";
+                int indice = 0 ;
+                boolean existe = false;
+
+                if(tilTituloTarea.getEditText().getText().toString().isEmpty()){
+                    tilTituloTarea.setError("Para Modificar una tarea debe escribir su Titulo");
+                }else{
+                    if(!tilDescripcion.getEditText().getText().toString().isEmpty())
+                        descripcion = tilDescripcion.getEditText().getText().toString();
+
+                    titulo = tilTituloTarea.getEditText().getText().toString();
+                    for(int x = 0; x < listaTareas.size(); x++){
+                        if(listaTareas.get(x).getTitulo().equalsIgnoreCase(titulo)){
+                            existe = true;
+                            indice = x;
+                        }
+                    }
+                    if(existe){
+                        listaTareas.get(indice).setDescripcion(descripcion);
+                        Toast.makeText(SegundaPantalla.this, "Modificacion Exitosa", Toast.LENGTH_SHORT).show();
+                    }else{
+                        Toast.makeText(SegundaPantalla.this, "La Tarea no Existe", Toast.LENGTH_SHORT).show();
+                    }
+
+                }
+            }
+        });
+
+        imbBuscar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
             }
         });
 
