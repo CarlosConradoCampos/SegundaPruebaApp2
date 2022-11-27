@@ -1,9 +1,18 @@
 package com.app.segundapruebaapp;
 
-public class Tarea {
+import java.io.Serializable;
+
+public class Tarea implements Serializable {
     private int id;
     private String titulo;
     private String descripcion;
+
+    public String toString(){
+        return titulo + "---"+ descripcion;
+    }
+
+    public Tarea() {
+    }
 
     public Tarea(int id, String titulo) {
         this.id = id;

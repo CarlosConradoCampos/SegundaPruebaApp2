@@ -2,6 +2,7 @@ package com.app.segundapruebaapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -95,6 +96,9 @@ public class SegundaPantalla extends AppCompatActivity {
         imbBuscar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent buscarPantalla = new Intent(SegundaPantalla.this, Buscar.class);
+                buscarPantalla.putExtra("lista_tareas",listaTareas);
+                startActivity(buscarPantalla);
 
             }
         });
